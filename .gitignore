@@ -110,4 +110,3 @@ web_monitor_app2.py
 kafka_admin.py
 gen_doc.py
 .vscode
-*.py
