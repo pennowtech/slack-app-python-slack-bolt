@@ -23,10 +23,16 @@ def hello_handler(payload, say, context):
 
 
 @app.event("reaction_added")
-def reaction_added(payload, say):
+def reaction_added(payload, say, client):
     emoji = payload["reaction"]
-    emoji_text = f':{emoji}:'
-    say(emoji_text)
+    channel_id=payload["item"]["channel"]
+    ts=payload["item"]["ts"]
+
+    client.reactions_add(
+        name="wave",
+        channel=channel_id,
+        timestamp=ts,
+    )
 
 
 if __name__ == "__main__":
