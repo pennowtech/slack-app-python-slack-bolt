@@ -71,26 +71,26 @@ def raise_ticket_view():
                                 {
                                     "text": {
                                         "type": "plain_text",
-                                        "text": "a",
+                                        "text": "User 1",
                                         "emoji": True
                                     },
-                                    "value": "id-0"
+                                    "value": "u1"
                                 },
                                 {
                                     "text": {
                                         "type": "plain_text",
-                                        "text": "b",
+                                        "text": "User 2",
                                         "emoji": True
                                     },
-                                    "value": "id-1"
+                                    "value": "u2"
                                 },
                                 {
                                     "text": {
                                         "type": "plain_text",
-                                        "text": "c",
+                                        "text": "User 3",
                                         "emoji": True
                                     },
-                                    "value": "id-2"
+                                    "value": "u3"
                                 }
                             ],
                             "action_id": "select_assignee_action"
@@ -181,7 +181,7 @@ def store_ticket(url_val, url_status, ticket_id, assignee_text, assignee_val, pl
                             },
                             {
                                 "type": "mrkdwn",
-                                "text": f"*Website status:*\n{url_status}s"
+                                "text": f"{url_status}"
                             }
                         ]
                     },
@@ -190,21 +190,11 @@ def store_ticket(url_val, url_status, ticket_id, assignee_text, assignee_val, pl
                         "fields": [
                             {
                                 "type": "mrkdwn",
-                                "text": f"*Assigne Name:*\n{assignee_text}"
+                                "text": f"*Planned Date:* :calendar: \n{planned_date}",
                             },
                             {
                                 "type": "mrkdwn",
-                                "text": f"*Assignee ID:*\n{assignee_val}s"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "context",
-                        "elements": [
-                            {
-                                "type": "plain_text",
-                                "text": f"Planned Date: :calendar: {planned_date}",
-                                "emoji": True
+                                "text": f"*Assigne Name:*\n{assignee_text}({assignee_val})",
                             }
                         ]
                     },
