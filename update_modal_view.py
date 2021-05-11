@@ -94,9 +94,10 @@ def employee_view_with_department_list(employee_name):
 			"element": {
 				"type": "plain_text_input",
 				"action_id": "name_input",
+				"initial_value": employee_name if employee_name else "",
 				"placeholder": {
 					"type": "plain_text",
-					"text": employee_name if employee_name else "Enter employee's name"
+					"text": "Enter employee's name"
 				}
 			},
 			"label": {

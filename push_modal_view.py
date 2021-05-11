@@ -94,9 +94,10 @@ def employee_view_with_department_list(employee_name):
 			"element": {
 				"type": "plain_text_input",
 				"action_id": "name_input",
+				"initial_value": employee_name if employee_name else "",
 				"placeholder": {
 					"type": "plain_text",
-					"text": employee_name if employee_name else "Enter employee's name"
+					"text": "Enter employee's name"
 				}
 			},
 			"label": {
@@ -164,18 +165,15 @@ def employee_view_submission(ack, say, respond, client, body):
 
 
 @app.action("button-action")
-def update_employee_view(ack, body, client, payload):
+def update_employee_view(ack, body, client, respond):
     ack()
-    print(payload)
-    print('----')
-    print(body)
     employee_name = body['view']['state']['values']['name_input_block']['name_input']['value']
     view_info = employee_view_with_department_list(employee_name)
 
-    # client.views_push(
-    #     trigger_id=body["trigger_id"],
-    #     view=view_info
-    # )
+    client.views_push(
+        trigger_id=body["trigger_id"],
+        view=view_info
+    )
 
 
 @app.command("/employee")
